@@ -27,12 +27,12 @@
 
     <appender name="roll-by-simonsite" class="uk.org.simonsite.log4j.appender.TimeAndSizeRollingAppender">
         <param name="file" value="app.log" />
-        <param name="MaxFileSize" value="1MB" />
+        <param name="MaxFileSize" value="2MB" />
 <!--        <param name="FileNamePattern" value="log4j-%d{yyyy-MM-dd-HH-mm-ss-SSS}.log.gz" />-->
-        <param name="MaxRollFileCount" value="5"/>
+<!--        <param name="MaxRollFileCount" value="5"/>-->
         <param name="CompressionAlgorithm" value="GZ"/>
-        <param name="CompressionMinQueueSize" value="5"/>
-        <param name="MaxRollFileCount" value="2" />
+<!--        <param name="CompressionMinQueueSize" value="5"/>-->
+<!--        <param name="MaxRollFileCount" value="2" />-->
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm} %-5p %m%n" />
         </layout>
