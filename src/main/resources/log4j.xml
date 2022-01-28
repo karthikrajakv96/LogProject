@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+    <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} [%p] %c{1} %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="rollout5" class="org.apache.log4j.rolling.RollingFileAppender">
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="ActiveFileName" value="log4j-current.log" />
+            <param name="FileNamePattern" value="log4j-%d{yyyy-MM-dd-HH-mm-ss-SSS}.log.gz" />
+<!--            <param name="FileNamePattern" value="log4j-%d{yyyy-MM-dd}.log.gz" />-->
+<!--            <param name="FileNamePattern" value="log4j-%d{HH-mm}.%i.log.gz" />-->
+        </rollingPolicy>
+        <triggeringPolicy class="org.apache.log4j.rolling.SizeBasedTriggeringPolicy">
+<!--            <param name="Encoding" value="GB2312"/>-->
+            <param name="MaxFileSize" value="20000000"/>x
+<!--            <param name="MaxBackupIndex" value="3"/>-->
+            <param name="MaxIndex" value="3"/>
+        </triggeringPolicy>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p - %m%n" />
+        </layout>
+    </appender>
+
+<!--    <appender name="roll-by-simonsite" class="uk.org.simonsite.log4j.appender.TimeAndSizeRollingAppender">-->
+<!--        <param name="file" value="app.log" />-->
+<!--        <param name="MaxFileSize" value="1MB" />-->
+<!--        <param name="FileNamePattern" value="log4j-%d{yyyy-MM-dd-HH-mm-ss-SSS}.log.gz" />-->
+<!--        <param name="CompressionAlgorithm" value="GZ"/>-->
+<!--&lt;!&ndash;        <param name="MaxBackupIndex" value="2" />&ndash;&gt;-->
+<!--        <layout class="org.apache.log4j.PatternLayout">-->
+<!--            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm} %-5p %m%n" />-->
+<!--        </layout>-->
+<!--    </appender>-->
+
+    <root>
+        <priority value="INFO"/>
+        <appender-ref ref="rollout5"/>
+<!--        <appender-ref ref="roll-by-simonsite"/>-->
+        <appender-ref ref="consoleAppender"/>
+    </root>
+</log4j:configuration>
